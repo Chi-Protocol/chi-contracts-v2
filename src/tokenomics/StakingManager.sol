@@ -173,7 +173,7 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     }
 
     /// @inheritdoc IStakingManager
-    function setStakedTokenImplementation(address implementation) external {
+    function setStakedTokenImplementation(address implementation) external onlyOwner {
         stakedTokenImplementation = implementation;
 
         emit SetStakedTokenImplementation(implementation);
