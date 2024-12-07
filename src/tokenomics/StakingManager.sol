@@ -11,6 +11,7 @@ import {RewardTokenData, RewardTokenConfig} from "../types/DataTypes.sol";
 import {StakedToken} from "./StakedToken.sol";
 import {IStakedToken} from "../interfaces/IStakedToken.sol";
 import {StakedTokenBeaconProxy} from "./StakedTokenBeaconProxy.sol";
+import {IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 
 /// @title StakingManger contract
 /// @notice Contract for staking tokens and earning multiple tokens as rewards
@@ -19,7 +20,7 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     /// @dev Constant that determines on how many decimals rewardPerStakedToken will be calculated and saved in storage
     /// @dev The more decimals this value has the more precision rewards will have
     /// @dev Nothing more than changing this value is needed in order to change precision
-    uint256 public constant REWARD_PER_STAKED_TOKEN_BASE = 1e27;
+    uint256 public constant REWARD_PER_STAKED_TOKEN_BASE = 1e18;
 
     struct TokenInfo {
         /// @dev Address of staked token smart contract that is ERC20 representation of position in the pool
@@ -52,13 +53,25 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
         mapping(address => mapping(address => uint256)) accruedRewards;
     }
 
-    /// @dev Mapping of token info for each staking token
-    mapping(address => TokenInfo) tokenInfo;
-    /// @dev Array of staking tokens, used to iterate over all staking tokens
-    address[] stakingTokens;
+    /// @dev True if contract is paused, false otherwise
+    bool isPaused;
+
     /// @dev Address of implementation contract for StakedToken smart contract
     /// @dev When this address is changed all StakedToken contract are automatically upgraded since they are BeaconProxy
     address stakedTokenImplementation;
+
+    /// @dev Mapping of token info for each staking token
+    mapping(address => TokenInfo) tokenInfo;
+
+    /// @dev Array of staking tokens, used to iterate over all staking tokens
+    address[] stakingTokens;
+
+    modifier whenNotPaused() {
+        if (isPaused) {
+            revert Paused();
+        }
+        _;
+    }
 
     modifier onlyActiveStaking(address asset) {
         if (!isStakingStarted(asset)) {
@@ -76,6 +89,11 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
 
     function initialize() external initializer {
         __Ownable_init();
+    }
+
+    /// @inheritdoc IStakingManager
+    function getIsPaused() external view returns (bool) {
+        return isPaused;
     }
 
     /// @inheritdoc IStakingManager
@@ -173,6 +191,13 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     }
 
     /// @inheritdoc IStakingManager
+    function setIsPaused(bool paused) external onlyOwner {
+        isPaused = paused;
+
+        emit SetPaused(paused);
+    }
+
+    /// @inheritdoc IStakingManager
     function setStakedTokenImplementation(address implementation) external onlyOwner {
         stakedTokenImplementation = implementation;
 
@@ -195,7 +220,13 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
         if (getStakedToken(asset) == address(0)) {
             StakedTokenBeaconProxy stakedTokenBeaconProxy = new StakedTokenBeaconProxy(
                 address(this),
-                abi.encodeWithSelector(StakedToken.initialize.selector, address(this), asset, "Staked Token", "STK")
+                abi.encodeWithSelector(
+                    StakedToken.initialize.selector,
+                    address(this),
+                    asset,
+                    string.concat("Staked ", IERC20Metadata(asset).name()),
+                    string.concat("st", IERC20Metadata(asset).symbol())
+                )
             );
 
             tokenInfo[asset].stakedToken = address(stakedTokenBeaconProxy);
