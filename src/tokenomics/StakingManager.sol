@@ -264,7 +264,11 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     }
 
     /// @inheritdoc IStakingManager
-    function stake(address stakingToken, uint256 amount, address recipient) external onlyActiveStaking(stakingToken) {
+    function stake(address stakingToken, uint256 amount, address recipient)
+        external
+        onlyActiveStaking(stakingToken)
+        whenNotPaused
+    {
         SafeERC20.safeTransferFrom(IERC20(stakingToken), msg.sender, address(this), amount);
         IStakedToken(getStakedToken(stakingToken)).mint(recipient, amount);
 
@@ -272,7 +276,7 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     }
 
     /// @inheritdoc IStakingManager
-    function unstake(address stakingToken, uint256 amount, address recipient) public {
+    function unstake(address stakingToken, uint256 amount, address recipient) public whenNotPaused {
         IStakedToken(getStakedToken(stakingToken)).burn(msg.sender, amount);
         SafeERC20.safeTransfer(IERC20(stakingToken), recipient, amount);
 
@@ -280,13 +284,13 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     }
 
     /// @inheritdoc IStakingManager
-    function unstakeAndClaim(address stakingToken, uint256 amount, address recipient) external {
+    function unstakeAndClaim(address stakingToken, uint256 amount, address recipient) external whenNotPaused {
         unstake(stakingToken, amount, recipient);
         claimRewards(stakingToken, recipient);
     }
 
     /// @inheritdoc IStakingManager
-    function claimRewards(address stakingToken, address recipient) public {
+    function claimRewards(address stakingToken, address recipient) public whenNotPaused {
         TokenInfo storage _tokenInfo = tokenInfo[stakingToken];
 
         for (uint256 i = 0; i < _tokenInfo.rewardTokens.length; i++) {
@@ -295,7 +299,7 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     }
 
     /// @inheritdoc IStakingManager
-    function claimRewardsForToken(address stakingToken, address rewardToken, address recipient) public {
+    function claimRewardsForToken(address stakingToken, address rewardToken, address recipient) public whenNotPaused {
         _updateRewards(stakingToken, rewardToken);
 
         uint256 userTotalRewards = getUserTotalRewardsForToken(msg.sender, stakingToken, rewardToken);
@@ -316,6 +320,7 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     function updateHook(address stakingToken, address sender, address recipient, uint256 value)
         external
         onlyStakedToken(stakingToken)
+        whenNotPaused
     {
         TokenInfo storage _tokenInfo = tokenInfo[stakingToken];
         address[] memory rewardTokens = _tokenInfo.rewardTokens;
