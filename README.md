@@ -1,66 +1,21 @@
-## Foundry
+# Chi Protocol V2
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository contains the smart contracts source code for Chi Protocol. This repository uses both Hardhat and Foundry development environment for compilation, Foundry for testing and Hardhat for deployment.
 
-Foundry consists of:
+## What is Chi Protocol?
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Chi is an Ethereum-based protocol issuing a decentralized and capital-efficient stablecoin, known as USC, designed to bring stability, scalability and greater economic incentives to the world of decentralized finance. USC is the first stablecoin issued by Chi Protocol. LSTs are used as collateral to back it, and it relies on a dual stability mechanism to maintain the price at $1.
 
 ## Documentation
 
-https://book.getfoundry.sh/
+See the link to the whitepaper or visit official Chi docs
 
-## Usage
+- https://chi-protocol.gitbook.io/docs/background/chi-protocol
+- https://docsend.com/view/3vz6us5vca98kmvs
 
-### Build
+## Contract addresses
 
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+| Contract       | Proxy address                                | Implementation address                       |
+| -------------- | -------------------------------------------- | -------------------------------------------- |
+| StakingManager | `0x1402452D1FF1066AcB48Aa2d5E4c0Ca81a8a6B16` | `0x15337D6CFbf69fB1446fA870288420d4498Fa6D3` |
+| StakedToken    |                                              | `0xF40A7f75c0E5CF5FEfD56c40fDF494b58dAE5668` |
