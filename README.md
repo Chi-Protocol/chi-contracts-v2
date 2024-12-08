@@ -17,5 +17,5 @@ See the link to the whitepaper or visit official Chi docs
 
 | Contract       | Proxy address                                | Implementation address                       |
 | -------------- | -------------------------------------------- | -------------------------------------------- |
-| StakingManager | `0x1402452D1FF1066AcB48Aa2d5E4c0Ca81a8a6B16` | `0x15337D6CFbf69fB1446fA870288420d4498Fa6D3` |
+| StakingManager | `0x1402452D1FF1066AcB48Aa2d5E4c0Ca81a8a6B16` | `0x3881d1aAfbc7C519aE7D65177365db9bc283b75D` |
 | StakedToken    |                                              | `0xF40A7f75c0E5CF5FEfD56c40fDF494b58dAE5668` |
