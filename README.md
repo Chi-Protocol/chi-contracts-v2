@@ -15,7 +15,12 @@ See the link to the whitepaper or visit official Chi docs
 
 ## Contract addresses
 
-| Contract       | Proxy address                                | Implementation address                       |
-| -------------- | -------------------------------------------- | -------------------------------------------- |
-| StakingManager | `0x1402452D1FF1066AcB48Aa2d5E4c0Ca81a8a6B16` | `0x3881d1aAfbc7C519aE7D65177365db9bc283b75D` |
-| StakedToken    |                                              | `0xF40A7f75c0E5CF5FEfD56c40fDF494b58dAE5668` |
+| Contract                     | Proxy address                                | Implementation address                       |
+| ---------------------------- | -------------------------------------------- | -------------------------------------------- |
+| USC                          |                                              | `0x38547D918b9645F2D94336B6b61AEB08053E142c` |
+| CHI                          |                                              | `0x3b21418081528845a6DF4e970bD2185545b712ba` |
+| StakingManager               | `0x1402452D1FF1066AcB48Aa2d5E4c0Ca81a8a6B16` | `0x3881d1aAfbc7C519aE7D65177365db9bc283b75D` |
+| StakedToken                  |                                              | `0xF40A7f75c0E5CF5FEfD56c40fDF494b58dAE5668` |
+| StakedToken (stUSC/ETH LP)   | `0x044bCdf7deA1a825B7be24573b738462a4FE9D3f` | `0xF40A7f75c0E5CF5FEfD56c40fDF494b58dAE5668` |
+| StakedToken (stCHI/ETH LP)   | `0x8f3871fD26Ac117f6E3D55E5f98E627Ca5d5e581` | `0xF40A7f75c0E5CF5FEfD56c40fDF494b58dAE5668` |
+| stUSC/ETH LP Locking Manager | `0x06Ad9F7DCF8DB10B1a39168e32ace2425a1F88aE` | `0xb8aff422aE47A9074271cfc14689EFfF2d4Ac10c` |
