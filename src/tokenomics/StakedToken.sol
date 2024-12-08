@@ -11,7 +11,6 @@ contract StakedToken is ERC20Upgradeable, OwnableUpgradeable {
     /// @dev Address of staking token
     address stakingToken;
 
-
     constructor() {
         _disableInitializers();
     }

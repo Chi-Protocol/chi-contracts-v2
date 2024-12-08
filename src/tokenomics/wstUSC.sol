@@ -6,13 +6,13 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract wstUSC is ERC4626Upgradeable, OwnableUpgradeable {
-  function initialize(address stUSC) external initializer {
-    __ERC4626_init_unchained(IERC20Upgradeable(stUSC));
-    __ERC20_init_unchained("Wrapped Staked USC", "wstUSC");
-    __Ownable_init_unchained();
-  }
+    function initialize(address stUSC) external initializer {
+        __ERC4626_init_unchained(IERC20Upgradeable(stUSC));
+        __ERC20_init_unchained("Wrapped Staked USC", "wstUSC");
+        __Ownable_init_unchained();
+    }
 
-  function rescueTokens(IERC20 token, uint256 amount) external onlyOwner {
-    token.transfer(msg.sender, amount);
-  }
+    function rescueTokens(IERC20 token, uint256 amount) external onlyOwner {
+        token.transfer(msg.sender, amount);
+    }
 }

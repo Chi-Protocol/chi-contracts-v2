@@ -20,7 +20,7 @@ contract StakingManager is IStakingManager, OwnableUpgradeable {
     /// @dev Constant that determines on how many decimals rewardPerStakedToken will be calculated and saved in storage
     /// @dev The more decimals this value has the more precision rewards will have
     /// @dev Nothing more than changing this value is needed in order to change precision
-    uint256 public constant REWARD_PER_STAKED_TOKEN_BASE = 1e18;
+    uint256 public constant REWARD_PER_STAKED_TOKEN_BASE = 1e36;
 
     struct TokenInfo {
         /// @dev Address of staked token smart contract that is ERC20 representation of position in the pool
