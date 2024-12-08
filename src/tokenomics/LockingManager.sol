@@ -240,7 +240,7 @@ contract LockingManager is ILockingManager, OwnableUpgradeable {
         uint256 fromEpoch = lockInfo.lastClaimedEpoch + 1;
         uint256 toEpoch = currentEpoch - 1;
 
-        if (fromEpoch >= toEpoch) {
+        if (fromEpoch > toEpoch) {
             revert NoRewardsToClaim();
         }
 
