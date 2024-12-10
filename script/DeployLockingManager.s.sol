@@ -11,7 +11,7 @@ contract DeployLockingManager is Script {
     address public constant INITIAL_OWNER = 0xE36fF60a9Ae677c2d742a3DeddCA46d0fA999327;
 
     // TODO: Change this parameters every time you deploy a new contract
-    address public constant LOCKING_TOKEN = 0x8f3871fD26Ac117f6E3D55E5f98E627Ca5d5e581;
+    address public constant LOCKING_TOKEN = 0xa90f874eB15a13d7a913326Ef41963AaDA9111dd;
     address public constant REWARD_TOKEN = DeployConstants.CHI;
     uint256 public constant EPOCH_START_TIME = 1733696402;
     uint256 public constant EPOCH_DURATION = 1 days;
