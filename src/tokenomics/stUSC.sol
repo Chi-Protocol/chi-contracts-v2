@@ -13,6 +13,7 @@ contract stUSC is ISTUSC, OwnableUpgradeable, ERC20PermitUpgradeable {
 
     uint256 public constant REWARD_PER_SHARE_BASE = 1e18;
 
+    bool public isPaused;
     IERC20 public usc;
 
     uint256 public totalStaked;
@@ -26,12 +27,25 @@ contract stUSC is ISTUSC, OwnableUpgradeable, ERC20PermitUpgradeable {
     mapping(address => uint256) public rewardDebt;
     mapping(address => uint256) public shares;
 
+    modifier whenNotPaused() {
+        if (isPaused) {
+            revert Paused();
+        }
+
+        _;
+    }
+
     function initialize(IERC20 _usc) external initializer {
         __Ownable_init_unchained();
         __ERC20Permit_init_unchained("stUSC");
-        __ERC20_init_unchained("stUSC", "stUSC");
+        __ERC20_init_unchained("Staked USC", "stUSC");
 
         usc = _usc;
+    }
+
+    /// @inheritdoc ISTUSC
+    function setIsPaused(bool _isPaused) external onlyOwner {
+        isPaused = _isPaused;
     }
 
     /// @inheritdoc ISTUSC
@@ -82,7 +96,7 @@ contract stUSC is ISTUSC, OwnableUpgradeable, ERC20PermitUpgradeable {
         return totalStaked + _getTotalPendingRewards();
     }
 
-    function _transfer(address from, address to, uint256 amount) internal override {
+    function _transfer(address from, address to, uint256 amount) internal override whenNotPaused {
         uint256 senderCurrentShares = shares[from];
         uint256 recipientCurrentShares = shares[to];
 

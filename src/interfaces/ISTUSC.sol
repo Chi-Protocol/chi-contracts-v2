@@ -4,12 +4,18 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 interface ISTUSC {
+    error Paused();
     error InsufficientFunds();
 
     event Stake(address indexed from, address indexed to, uint256 amount);
     event Unstake(address indexed from, address indexed to, uint256 amount);
     event SetEmissionPerSecond(uint256 emissionPerSecond);
     event SetStartTimestamp(uint256 startTimestamp);
+
+    /// @notice Set pause state
+    /// @param isPaused Pause state
+    /// @dev Only owner can call this function
+    function setIsPaused(bool isPaused) external;
 
     /// @notice Set USC token address
     /// @param usc Address of USC token
