@@ -28,4 +28,5 @@ See the link to the whitepaper or visit official Chi docs
 | wstUSC Locking Manager       | `0x96F3258e9c15EA33C82cd062220634df7Fb096B1` | `0xF602Cbb6b4fEDDc15b5455b6f9927f804A48B065` |
 | stUSC                        | `0x6Dd9738FB2277fcD6B2f5eb5FdaAaeC32e702761` | `0x20C70FDF07bC9873f5B67056a76b5c9Cf47Dac93` |
 | wstUSC                       | `0xa90f874eB15a13d7a913326Ef41963AaDA9111dd` | `0x6196Dc0d965816E34fEaE12fCB8C8094E72b58f0` |
+| Arbitrage                    | ``                                           | `0x594f4983Df88c3d84caA6eb30C18fBA1986ED6f1` |
 | DataProvider                 |                                              | `0x1A387041Aa6660cD801B5c96AA1B4028a7d26Bd1` |
