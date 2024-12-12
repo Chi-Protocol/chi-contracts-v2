@@ -175,7 +175,20 @@ contract ReserveHolderV2 is IReserveHolderV2, OwnableUpgradeable {
     }
 
     /// @inheritdoc IReserveHolderV2
-    function rebalance(uint256[] calldata protectionParams) external onlyRebalancer {
+    function rebalance(uint256[] memory protectionParams) external onlyRebalancer {
+        _rebalance(protectionParams);
+    }
+
+    function rebalance(uint256 minReserveValueAfter) external onlyRebalancer {
+        uint256[] memory protectionParams = new uint256[](reserveAssets.length);
+        _rebalance(protectionParams);
+
+        if (getReserveValue() < minReserveValueAfter) {
+            revert SlippageTooBig();
+        }
+    }
+
+    function _rebalance(uint256[] memory protectionParams) private {
         uint256 totalReserveValue = getReserveValue();
 
         // First perform all sells and then buys to make sure we have enough WETH for buys

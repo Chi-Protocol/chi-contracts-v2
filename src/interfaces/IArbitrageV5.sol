@@ -43,6 +43,11 @@ interface IArbitrageV5 {
     event SetReserveMintTxLimit(address reserveAsset, uint256 limit);
     event SetReserveBurnTxLimit(address reserveAsset, uint256 limit);
 
+    /// @notice Sets reserve holder
+    /// @param _reserveHolder Address of reserve holder
+    /// @custom:usage This function should be called from owner in purpose of setting reserve holder
+    function setReserveHolder(address _reserveHolder) external;
+
     /// @notice Sets absolute peg price tolerance
     /// @param _priceTolerance Absolute value of price tolerance
     /// @custom:usage This function should be called from owner in purpose of setting price tolerance

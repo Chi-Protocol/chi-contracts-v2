@@ -34,6 +34,7 @@ interface IReserveHolderV2 {
     error NotRebalancer();
     error PercentageTooHigh();
     error AssetAlreadyAdded();
+    error SlippageTooBig();
 
     /// @notice Gets reserve assets
     /// @return reserveAssets Reserve assets

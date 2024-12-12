@@ -47,4 +47,8 @@ abstract contract Adapter is IAdapter, Ownable {
         totalDeposited = 0;
         emit RescueReserves();
     }
+
+    function rescueToken(address token) external onlyOwner {
+        IERC20(token).safeTransfer(msg.sender, IERC20(token).balanceOf(address(this)));
+    }
 }

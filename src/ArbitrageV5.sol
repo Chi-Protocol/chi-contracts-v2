@@ -40,7 +40,7 @@ contract ArbitrageV5 is IArbitrageV5, ReentrancyGuard, Ownable {
     IArbitrageERC20 public immutable USC;
     IArbitrageERC20 public immutable CHI;
     IPriceFeedAggregator public immutable priceFeedAggregator;
-    IReserveHolderV2 public immutable reserveHolder;
+    IReserveHolderV2 public reserveHolder;
 
     uint256 public pegPriceToleranceAbs;
     uint256 public mintBurnFee;
@@ -129,6 +129,11 @@ contract ArbitrageV5 is IArbitrageV5, ReentrancyGuard, Ownable {
         burnPaused = false;
 
         IERC20(STETH).approve(address(reserveHolder), type(uint256).max);
+    }
+
+    /// @inheritdoc IArbitrageV5
+    function setReserveHolder(address _reserveHolder) external onlyOwner {
+        reserveHolder = IReserveHolderV2(_reserveHolder);
     }
 
     /// @inheritdoc IArbitrageV5
