@@ -7,3 +7,4 @@ deploy-locking-manager :; forge script script/DeployLockingManager.s.sol:DeployL
 deploy-stusc :; forge script script/DeploystUSC.s.sol:DeploystUSC --force --rpc-url ${MAINNET_RPC_URL} --slow --broadcast --delay 5 -vvvv
 deploy-arbitrage :; forge script script/DeployArbitrage.s.sol:DeployArbitrage --force --rpc-url ${MAINNET_RPC_URL} --slow --broadcast --verify --delay 5 --verifier-url ${VERIFIER_URL} -vvvv
 deploy-weeth-oracle :; forge script script/DeployweETHOracle.s.sol:DeployweETHOracle --force --rpc-url ${MAINNET_RPC_URL} --slow --broadcast --verify --delay 5 --verifier-url ${VERIFIER_URL} -vvvv
+deploy-reserve-holder :; forge script script/DeployReserveHolderWithAdapters.s.sol:DeployReserveHolderWithAdapters --force --rpc-url ${MAINNET_RPC_URL} --slow --broadcast --delay 5 -vvvv

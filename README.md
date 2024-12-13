@@ -31,4 +31,7 @@ See the link to the whitepaper or visit official Chi docs
 | Arbitrage                    | ``                                           | `0x594f4983Df88c3d84caA6eb30C18fBA1986ED6f1` |
 | PriceFeedAggregator          | ``                                           | `0xb3a36232ECc1da6C8D0d3f417E00406566933bD0` |
 | weETH Oracle                 | ``                                           | `0x6b06E6C2F8c498835fab196eadDdE53d3D103C59` |
+| ReserveHolderV2              | `0xc36303ef9c780292755B5a9593Bfa8c1a7817E2a` | `0x6b944e7903d05e0396Cfc263A5f563e93d84A3f5` |
+| stETH Adapter                | ``                                           | `0x18601d46c38362cDA8CA0571BbBCD9a34bC2BD65` |
+| weETH Adapter                | ``                                           | `0x7f6dA7071d3524C61c2c87c4e631E52cbC8af5b6` |
 | DataProvider                 |                                              | `0x1A387041Aa6660cD801B5c96AA1B4028a7d26Bd1` |
