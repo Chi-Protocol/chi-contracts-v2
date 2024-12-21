@@ -123,6 +123,8 @@ contract stUSC is ISTUSC, OwnableUpgradeable, ERC20PermitUpgradeable {
             totalShares -= sendingShares;
             totalStaked -= amount;
         }
+
+        emit Transfer(from, to, amount);
     }
 
     function _updateRewards() internal {
