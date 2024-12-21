@@ -24,31 +24,31 @@ contract DeploystUSC is Script {
         address stUSCImplementation = address(new stUSC());
         console.log("stUSC implementation deployed to: ", stUSCImplementation);
 
-        // address stUSCProxy = address(
-        //     new TransparentUpgradeableProxy(
-        //         stUSCImplementation, PROXY_ADMIN, abi.encodeWithSelector(stUSC.initialize.selector, DeployConstants.USC)
-        //     )
-        // );
-        // console.log("stUSC proxy deployed to: ", stUSCProxy);
+        address stUSCProxy = address(
+            new TransparentUpgradeableProxy(
+                stUSCImplementation, PROXY_ADMIN, abi.encodeWithSelector(stUSC.initialize.selector, DeployConstants.USC)
+            )
+        );
+        console.log("stUSC proxy deployed to: ", stUSCProxy);
 
-        // stUSC(stUSCProxy).setStartTimestamp(block.timestamp);
-        // console.log("Start timestamp set to: ", block.timestamp);
+        stUSC(stUSCProxy).setStartTimestamp(block.timestamp);
+        console.log("Start timestamp set to: ", block.timestamp);
 
-        // stUSC(stUSCProxy).transferOwnership(INITIAL_OWNER);
-        // console.log("Ownership transferred to: ", INITIAL_OWNER);
+        stUSC(stUSCProxy).transferOwnership(INITIAL_OWNER);
+        console.log("Ownership transferred to: ", INITIAL_OWNER);
 
-        // address wstUSCImplementation = address(new wstUSC());
-        // console.log("wstUSC implementation deployed to: ", wstUSCImplementation);
+        address wstUSCImplementation = address(new wstUSC());
+        console.log("wstUSC implementation deployed to: ", wstUSCImplementation);
 
-        // address wstUSCProxy = address(
-        //     new TransparentUpgradeableProxy(
-        //         wstUSCImplementation, PROXY_ADMIN, abi.encodeWithSelector(wstUSC.initialize.selector, stUSCProxy)
-        //     )
-        // );
-        // console.log("wstUSC proxy deployed to: ", wstUSCProxy);
+        address wstUSCProxy = address(
+            new TransparentUpgradeableProxy(
+                wstUSCImplementation, PROXY_ADMIN, abi.encodeWithSelector(wstUSC.initialize.selector, stUSCProxy)
+            )
+        );
+        console.log("wstUSC proxy deployed to: ", wstUSCProxy);
 
-        // wstUSC(wstUSCProxy).transferOwnership(INITIAL_OWNER);
-        // console.log("Ownership transferred to: ", INITIAL_OWNER);
+        wstUSC(wstUSCProxy).transferOwnership(INITIAL_OWNER);
+        console.log("Ownership transferred to: ", INITIAL_OWNER);
 
         vm.stopBroadcast();
     }
