@@ -35,3 +35,4 @@ See the link to the whitepaper or visit official Chi docs
 | stETH Adapter                | ``                                           | `0x18601d46c38362cDA8CA0571BbBCD9a34bC2BD65` |
 | weETH Adapter                | ``                                           | `0x7f6dA7071d3524C61c2c87c4e631E52cbC8af5b6` |
 | DataProvider                 |                                              | `0x1A387041Aa6660cD801B5c96AA1B4028a7d26Bd1` |
+| Zap                          |                                              | `0xD4cc670e076B6963882aFE63FF6142cBcbC156F9` |
