@@ -9,3 +9,4 @@ deploy-arbitrage :; forge script script/DeployArbitrage.s.sol:DeployArbitrage --
 deploy-weeth-oracle :; forge script script/DeployweETHOracle.s.sol:DeployweETHOracle --force --rpc-url ${MAINNET_RPC_URL} --slow --broadcast --verify --delay 5 --verifier-url ${VERIFIER_URL} -vvvv
 deploy-reserve-holder :; forge script script/DeployReserveHolderWithAdapters.s.sol:DeployReserveHolderWithAdapters --force --rpc-url ${MAINNET_RPC_URL} --slow --broadcast --delay 5 -vvvv
 deploy-zap :; forge script script/DeployZap.s.sol:DeployZap --force --rpc-url ${MAINNET_RPC_URL} --slow --broadcast --verify --delay 5 --verifier-url ${VERIFIER_URL} -vvvv
+deploy-reserve-holder-data-provider :; forge script script/DeployReserveHolderDataProvider.s.sol:DeployReserveHolderDataProvider --force --rpc-url ${MAINNET_RPC_URL} --slow --broadcast --verify --delay 5 --verifier-url ${VERIFIER_URL} -vvvv
