@@ -27,7 +27,7 @@ See the link to the whitepaper or visit official Chi docs
 | stCHI/ETH LP Locking Manager | `0x371a13Db03e929944AD61530F5bfc7a86cF98ff5` | `0x40C53DFb3657a9375905e5d5E52235F259736331` |
 | wstUSC Locking Manager       | `0x96F3258e9c15EA33C82cd062220634df7Fb096B1` | `0xF602Cbb6b4fEDDc15b5455b6f9927f804A48B065` |
 | stUSC                        | `0x6Dd9738FB2277fcD6B2f5eb5FdaAaeC32e702761` | `0x8bbe0218945f3EcA6EB0A9D6474f678e4e4C91d6` |
-| wstUSC                       | `0xa90f874eB15a13d7a913326Ef41963AaDA9111dd` | `0x6196Dc0d965816E34fEaE12fCB8C8094E72b58f0` |
+| wstUSC                       | `0xb7343ADda6b97BB1dE39b8d9dF2630cFBb963871` | `0x97FdEeC510B5fB34B675D13196af0F8313730ba2` |
 | Arbitrage                    | ``                                           | `0x594f4983Df88c3d84caA6eb30C18fBA1986ED6f1` |
 | PriceFeedAggregator          | ``                                           | `0xb3a36232ECc1da6C8D0d3f417E00406566933bD0` |
 | weETH Oracle                 | ``                                           | `0x6b06E6C2F8c498835fab196eadDdE53d3D103C59` |
