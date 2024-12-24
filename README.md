@@ -28,12 +28,12 @@ See the link to the whitepaper or visit official Chi docs
 | wstUSC Locking Manager       | `0x96F3258e9c15EA33C82cd062220634df7Fb096B1` | `0xF602Cbb6b4fEDDc15b5455b6f9927f804A48B065` |
 | stUSC                        | `0x6Dd9738FB2277fcD6B2f5eb5FdaAaeC32e702761` | `0x8bbe0218945f3EcA6EB0A9D6474f678e4e4C91d6` |
 | wstUSC                       | `0xb7343ADda6b97BB1dE39b8d9dF2630cFBb963871` | `0x97FdEeC510B5fB34B675D13196af0F8313730ba2` |
-| Arbitrage                    | ``                                           | `0x594f4983Df88c3d84caA6eb30C18fBA1986ED6f1` |
-| PriceFeedAggregator          | ``                                           | `0xb3a36232ECc1da6C8D0d3f417E00406566933bD0` |
-| weETH Oracle                 | ``                                           | `0x6b06E6C2F8c498835fab196eadDdE53d3D103C59` |
+| Arbitrage                    |                                              | `0x594f4983Df88c3d84caA6eb30C18fBA1986ED6f1` |
+| PriceFeedAggregator          |                                              | `0xb3a36232ECc1da6C8D0d3f417E00406566933bD0` |
+| weETH Oracle                 |                                              | `0x6b06E6C2F8c498835fab196eadDdE53d3D103C59` |
 | ReserveHolderV2              | `0xc36303ef9c780292755B5a9593Bfa8c1a7817E2a` | `0x6b944e7903d05e0396Cfc263A5f563e93d84A3f5` |
-| stETH Adapter                | ``                                           | `0x18601d46c38362cDA8CA0571BbBCD9a34bC2BD65` |
-| weETH Adapter                | ``                                           | `0x7f6dA7071d3524C61c2c87c4e631E52cbC8af5b6` |
+| stETH Adapter                |                                              | `0x18601d46c38362cDA8CA0571BbBCD9a34bC2BD65` |
+| weETH Adapter                |                                              | `0x7f6dA7071d3524C61c2c87c4e631E52cbC8af5b6` |
 | DataProvider                 |                                              | `0x1A387041Aa6660cD801B5c96AA1B4028a7d26Bd1` |
 | ReserveHolderDataProvider    |                                              | `0x72Fe0f6402eC84f2156f979c1b256F67B5A8B356` |
 | Zap                          |                                              | `0xD4cc670e076B6963882aFE63FF6142cBcbC156F9` |
